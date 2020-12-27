@@ -1,0 +1,659 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="com.project.GUI_2.CREATE.createUser_GUI">
+  <grid id="27dc6" layout-manager="GridLayoutManager" row-count="10" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+    <margin top="0" left="0" bottom="0" right="0"/>
+    <constraints>
+      <xy x="20" y="20" width="3233" height="568"/>
+    </constraints>
+    <properties/>
+    <border type="none"/>
+    <children>
+      <vspacer id="100c">
+        <constraints>
+          <grid row="0" column="0" row-span="1" col-span="2" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </vspacer>
+      <vspacer id="da087">
+        <constraints>
+          <grid row="8" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </vspacer>
+      <vspacer id="6c77e">
+        <constraints>
+          <grid row="8" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </vspacer>
+      <hspacer id="e4019">
+        <constraints>
+          <grid row="7" column="2" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </hspacer>
+      <hspacer id="385e8">
+        <constraints>
+          <grid row="6" column="2" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </hspacer>
+      <hspacer id="f9081">
+        <constraints>
+          <grid row="5" column="2" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </hspacer>
+      <hspacer id="a5b26">
+        <constraints>
+          <grid row="9" column="0" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </hspacer>
+      <grid id="c30c6" binding="createUserPanel" layout-manager="GridLayoutManager" row-count="13" column-count="18" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="0" left="0" bottom="0" right="0"/>
+        <constraints>
+          <grid row="1" column="0" row-span="4" col-span="2" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-720913"/>
+        </properties>
+        <border type="none"/>
+        <children>
+          <component id="1c9a2" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="2" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Username:"/>
+            </properties>
+          </component>
+          <component id="8ccb4" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="3" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Surname:"/>
+            </properties>
+          </component>
+          <component id="c9be7" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="4" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Name:"/>
+            </properties>
+          </component>
+          <component id="d3016" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="5" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="E-mail:"/>
+            </properties>
+          </component>
+          <component id="8a54e" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="6" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Password:"/>
+            </properties>
+          </component>
+          <component id="7d05b" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="7" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Password Again:"/>
+            </properties>
+          </component>
+          <component id="a154c" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="9" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Usergroup:"/>
+            </properties>
+          </component>
+          <component id="b01f3" class="javax.swing.JComboBox" binding="cb_createUser_usergroup">
+            <constraints>
+              <grid row="9" column="7" row-span="1" col-span="6" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <model>
+                <item value="Afghanistan"/>
+                <item value="Albania"/>
+                <item value="Algeria"/>
+                <item value="Andorra"/>
+                <item value="Angola"/>
+                <item value="Antigua and Barbuda"/>
+                <item value="Argentina"/>
+                <item value="Armenia"/>
+                <item value="Australia"/>
+                <item value="Austria"/>
+                <item value="Austrian Empire"/>
+                <item value="Azerbaijan"/>
+                <item value="Baden"/>
+                <item value="Bahamas, The"/>
+                <item value="Bahrain"/>
+                <item value="Bangladesh"/>
+                <item value="Barbados"/>
+                <item value="Bavaria*"/>
+                <item value="Belarus"/>
+                <item value="Belgium"/>
+                <item value="Belize"/>
+                <item value="Benin (Dahomey)"/>
+                <item value="Bolivia"/>
+                <item value="Bosnia and Herzegovina"/>
+                <item value="Botswana"/>
+                <item value="Brazil"/>
+                <item value="Brunei"/>
+                <item value="Brunswick and Lüneburg"/>
+                <item value="Bulgaria"/>
+                <item value="Burkina Faso (Upper Volta)"/>
+                <item value="Burma"/>
+                <item value="Burundi"/>
+                <item value="Cabo Verde"/>
+                <item value="Cambodia"/>
+                <item value="Cameroon"/>
+                <item value="Canada"/>
+                <item value="Cayman Islands, The"/>
+                <item value="Central African Republic"/>
+                <item value="Central American Federation*"/>
+                <item value="Chad"/>
+                <item value="Chile"/>
+                <item value="China"/>
+                <item value="Colombia"/>
+                <item value="Comoros"/>
+                <item value="Congo Free State, The"/>
+                <item value="Costa Rica"/>
+                <item value="Cote d’Ivoire (Ivory Coast)"/>
+                <item value="Croatia"/>
+                <item value="Cuba"/>
+                <item value="Cyprus"/>
+                <item value="Czechia"/>
+                <item value="Czechoslovakia"/>
+                <item value="Democratic Republic of the Congo"/>
+                <item value="Denmark"/>
+                <item value="Djibouti"/>
+                <item value="Dominica"/>
+                <item value="Dominican Republic"/>
+                <item value="Duchy of Parma, The*"/>
+                <item value="East Germany (German Democratic Republic)"/>
+                <item value="Ecuador"/>
+                <item value="Egypt"/>
+                <item value="El Salvador"/>
+                <item value="Equatorial Guinea"/>
+                <item value="Eritrea"/>
+                <item value="Estonia"/>
+                <item value="Eswatini"/>
+                <item value="Ethiopia"/>
+                <item value="Federal Government of Germany (1848-49)*"/>
+                <item value="Fiji"/>
+                <item value="Finland"/>
+                <item value="France"/>
+                <item value="Gabon"/>
+                <item value="Gambia, The"/>
+                <item value="Georgia"/>
+                <item value="Germany"/>
+                <item value="Ghana"/>
+                <item value="Grand Duchy of Tuscany, The*"/>
+                <item value="Greece"/>
+                <item value="Grenada"/>
+                <item value="Guatemala"/>
+                <item value="Guinea"/>
+                <item value="Guinea-Bissau"/>
+                <item value="Guyana"/>
+                <item value="Haiti"/>
+                <item value="Hanover*"/>
+                <item value="Hanseatic Republics*"/>
+                <item value="Hawaii*"/>
+                <item value="Hesse*"/>
+                <item value="Holy See"/>
+                <item value="Honduras"/>
+                <item value="Hungary"/>
+                <item value="Iceland"/>
+                <item value="India"/>
+                <item value="Indonesia"/>
+                <item value="Iran"/>
+                <item value="Iraq"/>
+                <item value="Ireland"/>
+                <item value="Israel"/>
+                <item value="Italy"/>
+                <item value="Jamaica"/>
+                <item value="Japan"/>
+                <item value="Jordan"/>
+                <item value="Kazakhstan"/>
+                <item value="Kenya"/>
+                <item value="Kingdom of Serbia/Yugoslavia*"/>
+                <item value="Kiribati"/>
+                <item value="Korea"/>
+                <item value="Kosovo"/>
+                <item value="Kuwait"/>
+                <item value="Kyrgyzstan"/>
+                <item value="Laos"/>
+                <item value="Latvia"/>
+                <item value="Lebanon"/>
+                <item value="Lesotho"/>
+                <item value="Lew Chew (Loochoo)*"/>
+                <item value="Liberia"/>
+                <item value="Libya"/>
+                <item value="Liechtenstein"/>
+                <item value="Lithuania"/>
+                <item value="Luxembourg"/>
+                <item value="Madagascar"/>
+                <item value="Malawi"/>
+                <item value="Malaysia"/>
+                <item value="Maldives"/>
+                <item value="Mali"/>
+                <item value="Malta"/>
+                <item value="Marshall Islands"/>
+                <item value="Mauritania"/>
+                <item value="Mauritius"/>
+                <item value="Mecklenburg-Schwerin*"/>
+                <item value="Mecklenburg-Strelitz*"/>
+                <item value="Mexico"/>
+                <item value="Micronesia"/>
+                <item value="Moldova"/>
+                <item value="Monaco"/>
+                <item value="Mongolia"/>
+                <item value="Montenegro"/>
+                <item value="Morocco"/>
+                <item value="Mozambique"/>
+                <item value="Namibia"/>
+                <item value="Nassau*"/>
+                <item value="Nauru"/>
+                <item value="Nepal"/>
+                <item value="Netherlands, The"/>
+                <item value="New Zealand"/>
+                <item value="Nicaragua"/>
+                <item value="Niger"/>
+                <item value="Nigeria"/>
+                <item value="North German Confederation*"/>
+                <item value="North German Union*"/>
+                <item value="North Macedonia"/>
+                <item value="Norway"/>
+                <item value="Oldenburg*"/>
+                <item value="Oman"/>
+                <item value="Orange Free State*"/>
+                <item value="Pakistan"/>
+                <item value="Palau"/>
+                <item value="Panama"/>
+                <item value="Papal States*"/>
+                <item value="Papua New Guinea"/>
+                <item value="Paraguay"/>
+                <item value="Peru"/>
+                <item value="Philippines"/>
+                <item value="Piedmont-Sardinia*"/>
+                <item value="Poland"/>
+                <item value="Portugal"/>
+                <item value="Qatar"/>
+                <item value="Republic of Genoa*"/>
+                <item value="Republic of Korea (South Korea)"/>
+                <item value="Republic of the Congo"/>
+                <item value="Romania"/>
+                <item value="Russia"/>
+                <item value="Rwanda"/>
+                <item value="Saint Kitts and Nevis"/>
+                <item value="Saint Lucia"/>
+                <item value="Saint Vincent and the Grenadines"/>
+                <item value="Samoa"/>
+                <item value="San Marino"/>
+                <item value="Sao Tome and Principe"/>
+                <item value="Saudi Arabia"/>
+                <item value="Schaumburg-Lippe*"/>
+                <item value="Senegal"/>
+                <item value="Serbia"/>
+                <item value="Seychelles"/>
+                <item value="Sierra Leone"/>
+                <item value="Singapore"/>
+                <item value="Slovakia"/>
+                <item value="Slovenia"/>
+                <item value="Solomon Islands, The"/>
+                <item value="Somalia"/>
+                <item value="South Africa"/>
+                <item value="South Sudan"/>
+                <item value="Spain"/>
+                <item value="Sri Lanka"/>
+                <item value="Sudan"/>
+                <item value="Suriname"/>
+                <item value="Sweden"/>
+                <item value="Switzerland"/>
+                <item value="Syria"/>
+                <item value="Tajikistan"/>
+                <item value="Tanzania"/>
+                <item value="Texas*"/>
+                <item value="Thailand"/>
+                <item value="Timor-Leste"/>
+                <item value="Togo"/>
+                <item value="Tonga"/>
+                <item value="Trinidad and Tobago"/>
+                <item value="Tunisia"/>
+                <item value="Turkey"/>
+                <item value="Turkmenistan"/>
+                <item value="Tuvalu"/>
+                <item value="Two Sicilies"/>
+                <item value="Uganda"/>
+                <item value="Ukraine"/>
+                <item value="Union of Soviet Socialist Republics*"/>
+                <item value="United Arab Emirates, The"/>
+                <item value="United Kingdom, The"/>
+                <item value="Uruguay"/>
+                <item value="Uzbekistan"/>
+                <item value="VVanuatu"/>
+                <item value="Venezuela"/>
+                <item value="Vietnam"/>
+                <item value="Württemberg*"/>
+                <item value="Yemen"/>
+                <item value="Zambia"/>
+                <item value="Zimbabwe"/>
+              </model>
+            </properties>
+          </component>
+          <component id="1d34a" class="javax.swing.JTextField" binding="tf_createUser_username">
+            <constraints>
+              <grid row="2" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="-1"/>
+              </grid>
+            </constraints>
+            <properties>
+              <text value=""/>
+            </properties>
+          </component>
+          <component id="55188" class="javax.swing.JTextField" binding="tf_createUser_surname">
+            <constraints>
+              <grid row="3" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="-1"/>
+              </grid>
+            </constraints>
+            <properties>
+              <text value=""/>
+            </properties>
+          </component>
+          <component id="59893" class="javax.swing.JTextField" binding="tf_createUser_firstname">
+            <constraints>
+              <grid row="4" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="-1"/>
+              </grid>
+            </constraints>
+            <properties/>
+          </component>
+          <component id="b959f" class="javax.swing.JTextField" binding="tf_createUser_email">
+            <constraints>
+              <grid row="5" column="7" row-span="1" col-span="6" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="-1"/>
+              </grid>
+            </constraints>
+            <properties>
+              <text value=""/>
+            </properties>
+          </component>
+          <vspacer id="ab9a3">
+            <constraints>
+              <grid row="11" column="6" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </vspacer>
+          <hspacer id="6ff25">
+            <constraints>
+              <grid row="1" column="7" row-span="1" col-span="6" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </hspacer>
+          <hspacer id="d4c0e">
+            <constraints>
+              <grid row="1" column="6" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </hspacer>
+          <hspacer id="51554">
+            <constraints>
+              <grid row="3" column="13" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </hspacer>
+          <hspacer id="8bcc9">
+            <constraints>
+              <grid row="4" column="13" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </hspacer>
+          <hspacer id="56d1b">
+            <constraints>
+              <grid row="5" column="13" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </hspacer>
+          <hspacer id="73b84">
+            <constraints>
+              <grid row="6" column="13" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </hspacer>
+          <hspacer id="3eb97">
+            <constraints>
+              <grid row="7" column="13" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </hspacer>
+          <hspacer id="a8a8d">
+            <constraints>
+              <grid row="9" column="13" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </hspacer>
+          <hspacer id="75b7a">
+            <constraints>
+              <grid row="2" column="5" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </hspacer>
+          <hspacer id="8d49b">
+            <constraints>
+              <grid row="3" column="5" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </hspacer>
+          <hspacer id="33381">
+            <constraints>
+              <grid row="4" column="5" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </hspacer>
+          <hspacer id="b58ea">
+            <constraints>
+              <grid row="5" column="5" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </hspacer>
+          <hspacer id="515dd">
+            <constraints>
+              <grid row="6" column="5" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </hspacer>
+          <hspacer id="8f87">
+            <constraints>
+              <grid row="7" column="5" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </hspacer>
+          <hspacer id="a306e">
+            <constraints>
+              <grid row="9" column="5" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </hspacer>
+          <hspacer id="a7354">
+            <constraints>
+              <grid row="2" column="4" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </hspacer>
+          <hspacer id="33ad8">
+            <constraints>
+              <grid row="3" column="3" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </hspacer>
+          <hspacer id="bb2b0">
+            <constraints>
+              <grid row="5" column="2" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </hspacer>
+          <component id="751ab" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="10" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Usertyp"/>
+            </properties>
+          </component>
+          <hspacer id="1712a">
+            <constraints>
+              <grid row="10" column="5" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </hspacer>
+          <component id="534aa" class="javax.swing.JButton" binding="bt_createUser_create">
+            <constraints>
+              <grid row="12" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Create"/>
+            </properties>
+          </component>
+          <component id="f4cbc" class="javax.swing.JButton" binding="bt_createUser_cancel">
+            <constraints>
+              <grid row="12" column="9" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Cancel"/>
+            </properties>
+          </component>
+          <hspacer id="29c8f">
+            <constraints>
+              <grid row="1" column="13" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </hspacer>
+          <hspacer id="8f56">
+            <constraints>
+              <grid row="2" column="13" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </hspacer>
+          <hspacer id="db3bc">
+            <constraints>
+              <grid row="9" column="17" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </hspacer>
+          <hspacer id="3ebb5">
+            <constraints>
+              <grid row="7" column="17" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </hspacer>
+          <hspacer id="3fb57">
+            <constraints>
+              <grid row="3" column="17" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </hspacer>
+          <hspacer id="9a43f">
+            <constraints>
+              <grid row="5" column="16" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </hspacer>
+          <hspacer id="76c97">
+            <constraints>
+              <grid row="5" column="15" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </hspacer>
+          <hspacer id="67283">
+            <constraints>
+              <grid row="5" column="14" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </hspacer>
+          <hspacer id="51af5">
+            <constraints>
+              <grid row="6" column="3" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </hspacer>
+          <hspacer id="76032">
+            <constraints>
+              <grid row="6" column="1" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </hspacer>
+          <hspacer id="32a79">
+            <constraints>
+              <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </hspacer>
+          <component id="733e4" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="8" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Manager"/>
+            </properties>
+          </component>
+          <component id="5b25e" class="javax.swing.JTextField" binding="tf_createUser_managerID">
+            <constraints>
+              <grid row="8" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="-1"/>
+              </grid>
+            </constraints>
+            <properties>
+              <text value=""/>
+            </properties>
+          </component>
+          <component id="bbdf1" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="8" column="9" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="*please write ManagerID"/>
+            </properties>
+          </component>
+          <hspacer id="a6f25">
+            <constraints>
+              <grid row="8" column="5" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </hspacer>
+          <component id="f40a5" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="0" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="You are logged as USERID!"/>
+            </properties>
+          </component>
+          <component id="10d98" class="javax.swing.JButton" binding="bt_createUser_back">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Back"/>
+            </properties>
+          </component>
+          <component id="f3e64" class="javax.swing.JButton" binding="bt_createUser_signout">
+            <constraints>
+              <grid row="0" column="17" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Sign Out!"/>
+            </properties>
+          </component>
+          <component id="d5d79" class="javax.swing.JComboBox" binding="cb_createUser_usertyp">
+            <constraints>
+              <grid row="10" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <model>
+                <item value="Manager"/>
+                <item value="Role Owner"/>
+                <item value="Risk Manager"/>
+                <item value="End User"/>
+              </model>
+            </properties>
+          </component>
+          <component id="7cb4b" class="javax.swing.JPasswordField" binding="pf_createUser_password">
+            <constraints>
+              <grid row="6" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="-1"/>
+              </grid>
+            </constraints>
+            <properties/>
+          </component>
+          <component id="638d0" class="javax.swing.JPasswordField" binding="pf_createUser_passwordConfirm">
+            <constraints>
+              <grid row="7" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="-1"/>
+              </grid>
+            </constraints>
+            <properties>
+              <text value=""/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+      <vspacer id="a6efb">
+        <constraints>
+          <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </vspacer>
+    </children>
+  </grid>
+</form>
