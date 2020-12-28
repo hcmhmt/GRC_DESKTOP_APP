@@ -114,9 +114,9 @@ public class createUser_GUI extends JFrame {
                         user.setUserSurname(surname);
                         user.setUserPassword(password);
                         user.setUserEmail(email);
-                        user.setUserIsActive(StatusEnum.ACTIVE);
+                        user.setUserIsActive(StatusEnum.ACTIVE.name());
                         user.setUserGroup(group);
-                        user.setUserType(userType);
+                        user.setUserType(userType.name());
                         user.setManagerID(managerID);
 
                         user = userService.save(user);
