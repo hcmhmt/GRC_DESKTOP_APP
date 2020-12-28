@@ -43,7 +43,6 @@ public class signUP_FORM_GUI extends JFrame{
 
     private UserService userService;
 
-
     /*
      * This function helps to creating a new User successfully, getting all Infos and setting to User Table
      *
@@ -96,25 +95,19 @@ public class signUP_FORM_GUI extends JFrame{
                 role.setRoleId(1L);
                 role.setRoleName("Public");
 
-
                 // getting all Info of User
-
                 String username = tf_signUp_username.getText().trim();
-                String firstName = tf_signUp_name.getText().trim();
                 String surname = tf_signUp_surname.getText().trim();
+                String firstName = tf_signUp_name.getText().trim();
+                String email = tf_signUp_email.getText().trim();
                 String password = String.valueOf(tf_signUp_password.getPassword());
                 String passwordConfirm = String.valueOf(tf_signUp_passwordconfirm.getPassword());
-                String email = tf_signUp_email.getText().trim();
                 String group = String.valueOf(cb_signUp_usergroup.getSelectedItem());
-                 TypeEnum userType= TypeEnum.valueOf(String.valueOf(cb_signUp_userType.getSelectedItem()));
-
+                TypeEnum userType= TypeEnum.valueOf(String.valueOf(cb_signUp_userType.getSelectedItem()).replace(' ','_'));
 
                 String managerID = tf_signUp_manager.getText().trim();
 
-
-
                 // checking of all Text fields and confirming
-
                 if (!username.isEmpty() || !firstName.isEmpty() || !surname.isEmpty() || !password.isEmpty() || !passwordConfirm.isEmpty() || !email.isEmpty() ){
                     if(password.equals(passwordConfirm)){
 
@@ -123,10 +116,11 @@ public class signUP_FORM_GUI extends JFrame{
                         user.setUserSurname(surname);
                         user.setUserPassword(password);
                         user.setUserEmail(email);
-                        user.setUserIsActive(StatusEnum.ACTIVE);
+                        user.setUserIsActive(StatusEnum.ACTIVE.name());
                         user.setUserGroup(group);
-                        user.setUserType(userType);
+                        user.setUserType(userType.name());
                         user.setManagerID(managerID);
+                        user.setRoleId(role);
 
                         user = userService.save(user);
                         if (user != null) {

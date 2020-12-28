@@ -4,6 +4,11 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import com.project.GUI_2.ENDUSER.EndUser_Page_GUI;
+import com.project.GUI_2.MANAGER.Manager_Page_GUI;
+import com.project.GUI_2.RISKMANAGER.RiskManager_Page_GUI;
+import com.project.GUI_2.ROLEOWNER.RoleOwner_Page_GUI;
+import com.project.dto.StatusEnum;
 import com.project.dto.UserEntity;
 import com.project.GUI_2.USER.endUser_GUI;
 import com.project.GUI_2.USER.Manager_GUI;
@@ -65,21 +70,30 @@ public class signIn_GUI extends JFrame{
                     user.setUserPassword(password);
                     user.setUsername(username);
                     user = userService.canLogin(user);
-                    if (user != null) {
-                        showMessage("Done!", "forwarding to your personal Page", JOptionPane.INFORMATION_MESSAGE);
-                        String usertype = user.getUserType().toString();
+                    if (user != null && user.getUserIsActive().equals(StatusEnum.ACTIVE.name())) {
 
-                        if (usertype.equals("manager")) {
-                            new Manager_GUI();
+                        switch (user.getUserType().toString()){
+                            case "MANAGER":
+                                dispose();
+                                showMessage("Done!", "Forwarding to Your Manager Page", JOptionPane.INFORMATION_MESSAGE);
+                                new Manager_Page_GUI();
+                                break;
+                            case "ROLE_OWNER":
+                                dispose();
+                                showMessage("Done!", "Forwarding to Role Owner Page", JOptionPane.INFORMATION_MESSAGE);
+                                new RoleOwner_Page_GUI();
+                                break;
+                            case "RISK_MANAGER":
+                                dispose();
+                                showMessage("Done!", "Forwarding to Risk Manager Page", JOptionPane.INFORMATION_MESSAGE);
+                                new RiskManager_Page_GUI();
+                                break;
+                            case "END_USER":
+                                dispose();
+                                showMessage("Done!", "Forwarding to End User Page", JOptionPane.INFORMATION_MESSAGE);
+                                new EndUser_Page_GUI();
+                                break;
                         }
-                        else if (usertype.equals("Role Owner")) {
-                            new RoleOwner_GUI();
-                        }
-                        else if (usertype.equals("Risk Manager")) {
-                            new RiskManager_GUI();
-                        }
-                        else
-                            new endUser_GUI();
                     }
                     else {
                         showMessage("Warning", "Invalid Password", JOptionPane.WARNING_MESSAGE);

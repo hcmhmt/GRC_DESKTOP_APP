@@ -25,10 +25,7 @@ public class EndUser_Page_GUI extends JFrame{
 
     public EndUser_Page_GUI(){
         add(enduserPagePanel);
-
-
         setSize(700,600);
-
         setTitle("You are a User!");
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setResizable(false);

@@ -1,6 +1,7 @@
 package com.project.GUI_2.RISKMANAGER;
 
 
+import com.project.GUI_2.CREATE.createRequest_GUI;
 import com.project.GUI_2.CREATE.createRisk_GUI;
 import com.project.GUI_2.FORM.WelcomeGUI;
 import com.project.GUI_2.FORM.signIn_GUI;
@@ -84,6 +85,7 @@ public class RiskManager_Page_GUI extends JFrame{
         bt_riskmanager_createRisk.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                //new createRequest_GUI();
                 new createRisk_GUI();
             }
         });

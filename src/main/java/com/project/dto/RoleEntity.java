@@ -16,16 +16,13 @@ public class RoleEntity implements Serializable {
     @Column(name = "role_name", unique = true, nullable = false, length = 100)
     private String roleName;
 
-    @Column(name = "role_description", unique = false, nullable = false, length = 100)
+    @Column(name = "role_description", unique = false, nullable = true, length = 100)
     private String description;
 
-    @Column(name = "role_owner", unique = true, nullable = false, length = 100)
+    @Column(name = "role_owner", unique = false, nullable = true, length = 100)
     private String roleOwnerID;
 
-    @Column(name = "role_risklevel", unique = true, nullable = false, length = 100)
-    private String risklevel;
-
-    @Column(name = "role_system", unique = true, nullable = false, length = 100)
+    @Column(name = "role_system", unique = false, nullable = true, length = 100)
     private String system;
 
     @JoinColumn(name = "role_user_id")
@@ -33,9 +30,8 @@ public class RoleEntity implements Serializable {
     private List<UserEntity> users;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "risk_id", referencedColumnName = "risk_id")
+    @JoinColumn(name = "risk_role_id", referencedColumnName = "risk_id", nullable = true)
     private RiskEntity risk;
-
 
     public Long getRoleId() {
         return roleId;
@@ -45,20 +41,20 @@ public class RoleEntity implements Serializable {
         this.roleId = roleId;
     }
 
-    public void setRoleName(String roleName) {
-        this.roleName = roleName;
-    }
-
     public String getRoleName() {
         return roleName;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setRoleName(String roleName) {
+        this.roleName = roleName;
     }
 
     public String getDescription() {
         return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public String getRoleOwnerID() {
@@ -67,22 +63,6 @@ public class RoleEntity implements Serializable {
 
     public void setRoleOwnerID(String roleOwnerID) {
         this.roleOwnerID = roleOwnerID;
-    }
-
-    public String getRisklevel() {
-        return risklevel;
-    }
-
-    public void setRisklevel(String risklevel) {
-        this.risklevel = risklevel;
-    }
-
-    public RiskEntity getRiskname() {
-        return risk;
-    }
-
-    public void setRiskname(RiskEntity riskname) {
-        this.risk = risk;
     }
 
     public String getSystem() {
@@ -101,7 +81,13 @@ public class RoleEntity implements Serializable {
         this.users = users;
     }
 
+    public RiskEntity getRisk() {
+        return risk;
+    }
 
+    public void setRisk(RiskEntity risk) {
+        this.risk = risk;
+    }
 }
 
 

@@ -2,20 +2,25 @@ package com.project.GUI_2.CREATE;
 
 import com.project.GUI_2.FORM.WelcomeGUI;
 import com.project.GUI_2.USER.RoleOwner_GUI;
+import com.project.dto.RiskEntity;
 import com.project.dto.RoleEntity;
+import com.project.service.RiskService;
 import com.project.service.UserRoleService;
-import com.project.service.UserService;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 /*
  * This Page can opened only by Role Owner.
  * Another User should not create a new Role, so this Page is reachable from Role Owner Side.
  * */
 
-public class createRole_GUI extends JFrame{
+public class createRole_GUI extends JFrame {
 
     private JTextField tf_createRole_rolename;
     private JButton bt_createRole_cancel;
@@ -28,6 +33,9 @@ public class createRole_GUI extends JFrame{
     private JButton bt_createRole_signout;
     private JPanel createRolePanel;
 
+    private UserRoleService userRoleService;
+    private RiskService riskService;
+
 /*
 
 TO DO
@@ -35,9 +43,6 @@ TO DO
 * 1-Role Owner secmek icin TF yaptim fakat, User tablosundan Usertype = Role Owner olanlari getirebilir miyiz??Combobox seklinde
 * 2-
 * */
-
-    private UserRoleService userRoleService;
-
 
     /*
      * This function helps to creating a new Role successfully, getting all Infos and setting to Role Table
@@ -55,6 +60,15 @@ TO DO
         setResizable(false);
         setVisible(true);
         userRoleService = new UserRoleService();
+        riskService = new RiskService();
+
+        List<RiskEntity> riskList = riskService.getAll();
+        Map<Long, String> riskMap = new HashMap<>();
+
+        riskList.forEach(riskEntity -> {
+            cb_createRole_RiskLevel.addItem(riskEntity.getRiskName());
+            riskMap.put(riskEntity.getRiskId(), riskEntity.getRiskName());
+        });
 
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
@@ -88,43 +102,42 @@ TO DO
             @Override
             public void actionPerformed(ActionEvent e) {
                 RoleEntity role = new RoleEntity();
-
+                RiskEntity risk = new RiskEntity();
 
                 String roleName = tf_createRole_rolename.getText().trim();
                 String description = ta_createRole_description.getText();
                 String roleOwnerID = tf_createRole_roleOwner.getText().trim();
                 String risklevel = String.valueOf(cb_createRole_RiskLevel.getSelectedItem());
-                String system= String.valueOf(cb_createRole_System.getSelectedItem());
+                String system = String.valueOf(cb_createRole_System.getSelectedItem());
 
 
                 // checking of all Text fields and confirming
-                if (!roleName.isEmpty() || !description.isEmpty() || !roleOwnerID.isEmpty() || !risklevel.isEmpty() || !system.isEmpty() ){
+                if (!roleName.isEmpty() || !roleOwnerID.isEmpty() || !risklevel.isEmpty() || !system.isEmpty()) {
 
-                        // if there is no blank field--> setting all Info to Role table
-                        role.setRoleName(roleName);
-                        role.setDescription(description);
-                        role.setRoleOwnerID(roleOwnerID);
-                        role.setRisklevel(risklevel);
-                        role.setSystem(system);
+                    // if there is no blank field--> setting all Info to Role table
+                    role.setRoleName(roleName);
+                    role.setDescription(description);
+                    role.setRoleOwnerID(roleOwnerID);
+                    //role.setRisklevel(risklevel);
+                    role.setSystem(system);
 
-                        role = userRoleService.save(role);
+                    role = userRoleService.save(role);
 
-                        if (role != null) {
-                            showMessage("Done", "You have created a new Role", JOptionPane.INFORMATION_MESSAGE);
-                            setEmptyInputs();
-                            // massage GUI--> succesfully creating a new User
-                        }else {
-                            showMessage("Error", "This Role is already exists on our System", JOptionPane.WARNING_MESSAGE);
-                            // massage GUI--> trying to create not new User
-                        }
+                    if (role != null) {
+                        showMessage("Done", "You have created a new Role", JOptionPane.INFORMATION_MESSAGE);
+                        setEmptyInputs();
+                        // massage GUI--> succesfully creating a new User
+                    } else {
+                        showMessage("Error", "This Role is already exists on our System", JOptionPane.WARNING_MESSAGE);
+                        // massage GUI--> trying to create not new User
+                    }
 
 
-                } else showMessage("","",1);
+                } else showMessage("", "", 1);
             }
         });
 
     }
-
 
 
     /*

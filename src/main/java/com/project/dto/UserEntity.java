@@ -15,29 +15,29 @@ public class UserEntity implements Serializable {
     @Column(name = "username", unique = true, nullable = false, length = 100)
     private String username;
 
-    @Column(name = "surname", unique = false, nullable = false, length = 100)
+    @Column(name = "surname", unique = false, nullable = true, length = 100)
     private String userSurname;
 
-    @Column(name = "first_name", unique = false, nullable = false, length = 100)
+    @Column(name = "first_name", unique = false, nullable = true, length = 100)
     private String userFirstName;
 
-    @Column(name = "email", unique = false, nullable = false, length = 20)
+    @Column(name = "email", unique = false, nullable = true, length = 20)
     private String userEmail;
 
-    @Column(name = "password", unique = false, nullable = false, length = 20)
+    @Column(name = "password", unique = false, nullable = true, length = 20)
     private String userPassword;
 
-    @Column(name = "user_group", unique = false, nullable = false, length = 20)
+    @Column(name = "user_group", unique = false, nullable = true, length = 20)
     private String userGroup;
 
-    @Column(name = "user_type", unique = false, nullable = false, length = 20)
-    private TypeEnum userType;
+    @Column(name = "user_type", unique = false, nullable = true, length = 20)
+    private String userType;
 
-    @Column(name = "user_manager", unique = false, nullable = false, length = 20)
+    @Column(name = "user_manager", unique = false, nullable = true, length = 20)
     private String managerID;
 
-    @Column(name = "user_is_active", nullable = false)
-    private StatusEnum userIsActive;
+    @Column(name = "user_is_active", nullable = true)
+    private String userIsActive;
 
     @JoinColumn(name = "role_user_id")
     @ManyToOne(optional = true, fetch = FetchType.LAZY)
@@ -99,11 +99,11 @@ public class UserEntity implements Serializable {
         this.userGroup = userGroup;
     }
 
-    public TypeEnum getUserType() {
+    public String getUserType() {
         return userType;
     }
 
-    public void setUserType(TypeEnum userType) {
+    public void setUserType(String userType) {
         this.userType = userType;
     }
 
@@ -115,11 +115,11 @@ public class UserEntity implements Serializable {
         this.managerID = managerID;
     }
 
-    public StatusEnum getUserIsActive() {
+    public String getUserIsActive() {
         return userIsActive;
     }
 
-    public void setUserIsActive(StatusEnum userIsActive) {
+    public void setUserIsActive(String userIsActive) {
         this.userIsActive = userIsActive;
     }
 

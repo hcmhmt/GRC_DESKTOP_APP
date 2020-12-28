@@ -166,10 +166,10 @@
         </constraints>
         <properties>
           <model>
-            <item value="Manager"/>
-            <item value="Role Owner"/>
-            <item value="Risk Manager"/>
-            <item value="End User"/>
+            <item value="MANAGER"/>
+            <item value="ROLE OWNER"/>
+            <item value="RISK MANAGER"/>
+            <item value="END USER"/>
           </model>
         </properties>
       </component>

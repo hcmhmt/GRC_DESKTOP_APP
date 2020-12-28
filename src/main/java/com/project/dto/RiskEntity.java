@@ -2,6 +2,7 @@ package com.project.dto;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 
 @Entity
@@ -16,17 +17,16 @@ public class RiskEntity implements Serializable {
     @Column(name = "risk_name", unique = true, nullable = false, length = 100)
     private String riskName;
 
-    @Column(name = "risk_description", unique = false, nullable = false, length = 100)
+    @Column(name = "risk_description", unique = false, nullable = true, length = 100)
     private String riskDescription;
 
-    @Column(name = "risk_owner", unique = true, nullable = false, length = 100)
+    @Column(name = "risk_owner", unique = false, nullable = true, length = 100)
     private String riskOwnerID;
 
-    @Column(name = "risk_level", unique = true, nullable = false, length = 100)
-    private LevelEnum risklevel;
+    @Column(name = "risk_level", unique = false, nullable = true, length = 100)
+    private String risklevel;
 
-    @JoinColumn(name = "role_id")
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne(mappedBy = "risk")
     private RoleEntity role;
 
     public Long getRiskId() {
@@ -61,11 +61,11 @@ public class RiskEntity implements Serializable {
         this.riskOwnerID = riskOwnerID;
     }
 
-    public LevelEnum getRisklevel() {
+    public String getRisklevel() {
         return risklevel;
     }
 
-    public void setRisklevel(LevelEnum risklevel) {
+    public void setRisklevel(String risklevel) {
         this.risklevel = risklevel;
     }
 

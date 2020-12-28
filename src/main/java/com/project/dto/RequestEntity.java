@@ -14,22 +14,22 @@ public class RequestEntity implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long requestId;
 
-    @Column(name = "request_user_id", unique = false, nullable = false, length = 100)
+    @Column(name = "request_user_id", unique = false, nullable = true, length = 100)
     private String requestUserId;
 
-    @Column(name = "request_description", unique = false, nullable = false, length = 500)
+    @Column(name = "request_description", unique = false, nullable = true, length = 500)
     private String requestDescription;
 
-    @Column(name = "request_create_date", unique = false, nullable = false, length = 500)
+    @Column(name = "request_create_date", unique = false, nullable = true, length = 500)
     private Date requestCreateDate;
 
-    @Column(name = "request_system", unique = false, nullable = false, length = 20)
+    @Column(name = "request_system", unique = false, nullable = true, length = 20)
     private String requestSystem;
 
-    @Column(name = "request_role", unique = false, nullable = false, length = 30)
+    @Column(name = "request_role", unique = false, nullable = true, length = 30)
     private String requestRole;
 
-    @Column(name = "request_status", unique = false, nullable = false, length = 30)
+    @Column(name = "request_status", unique = false, nullable = true, length = 30)
     private String requestStatus;
 
     public Long getRequestId() {

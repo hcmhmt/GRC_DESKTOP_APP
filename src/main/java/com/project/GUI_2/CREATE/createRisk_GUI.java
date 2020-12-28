@@ -2,11 +2,7 @@ package com.project.GUI_2.CREATE;
 
 import com.project.GUI_2.FORM.WelcomeGUI;
 import com.project.GUI_2.USER.RiskManager_GUI;
-
-import com.project.dto.LevelEnum;
-import com.project.dto.RiskEntity;
 import com.project.service.RoleRiskService;
-
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -17,7 +13,7 @@ import java.awt.event.ActionListener;
  * This Page can opened only by Risk Owner.
  * Another User should not create a new Role, so this Page is reachable from Risk Owner Side.
  * */
-public class createRisk_GUI extends JFrame{
+public class createRisk_GUI extends JFrame {
     private JPanel createRiskPanel;
     private JTextField tf_createRisk_riskname;
     private JComboBox cb_createRisk_RiskLevel;
@@ -30,55 +26,55 @@ public class createRisk_GUI extends JFrame{
     private JTextField tf_createRisk_rolename;
 
 
-        private RoleRiskService roleRiskService;
+    private RoleRiskService roleRiskService;
 
 
-        /*
-         * This function helps to creating a new Risk successfully, getting all Infos and setting to Risk Table
-         *
-         * action of button BACK -forwarding to Manager Page
-         * action of button CANCEL -forwarding to Welcome Page
-         * action of button SIGN OUT - forwarding to Welcome Page
-         * action of button CREATE - creating a new Risk
-         * */
-        public createRisk_GUI() {
-            add(createRiskPanel);
-            setSize(700, 900);
-            setTitle("You are creating a new Risk!");
-            setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-            setResizable(false);
-            setVisible(true);
-            roleRiskService = new RoleRiskService();
+    /*
+     * This function helps to creating a new Risk successfully, getting all Infos and setting to Risk Table
+     *
+     * action of button BACK -forwarding to Manager Page
+     * action of button CANCEL -forwarding to Welcome Page
+     * action of button SIGN OUT - forwarding to Welcome Page
+     * action of button CREATE - creating a new Risk
+     * */
+    public createRisk_GUI() {
+        add(createRiskPanel);
+        setSize(700, 900);
+        setTitle("You are creating a new Risk!");
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        setResizable(false);
+        setVisible(true);
+        roleRiskService = new RoleRiskService();
 
-            try {
-                UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-            } catch (Exception e) {
-                System.out.println(e.getMessage());
+        try {
+            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+
+        bt_createRisk_back.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new RiskManager_GUI();
             }
+        });
 
-            bt_createRisk_back.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    new RiskManager_GUI();
-                }
-            });
-
-            bt_createRisk_signout.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    new WelcomeGUI();
-                }
-            });
+        bt_createRisk_signout.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new WelcomeGUI();
+            }
+        });
 
 
-            bt_createRisk_cancel.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    new RiskManager_GUI();
-                }
-            });
+        bt_createRisk_cancel.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new RiskManager_GUI();
+            }
+        });
 
-            bt_createRisk_create.addActionListener(new ActionListener() {
+            /*bt_createRisk_create.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     RiskEntity risk = new RiskEntity();
@@ -101,7 +97,7 @@ public class createRisk_GUI extends JFrame{
                         risk.setRiskDescription(description);
                         risk.setRiskOwnerID(riskOwnerID);
                         risk.setRisklevel(risklevel);
-                        risk.setRolename(roleName);
+                        //risk.setRolename(roleName);
 
 
                         risk = roleRiskService.save(risk);
@@ -119,25 +115,24 @@ public class createRisk_GUI extends JFrame{
                     } else showMessage("","",1);
                 }
             });
+            */
+    }
 
-        }
 
+    /*
+     * After creating a new User, setting as blank for all Text Fields
+     * */
+    private void setEmptyInputs() {
+        tf_createRisk_riskname.setText("");
+        ta_createRisk_description.setText("");
+        tf_createRisk_riskOwner.setText("");
 
+    }
 
-        /*
-         * After creating a new User, setting as blank for all Text Fields
-         * */
-        private void setEmptyInputs() {
-            tf_createRisk_riskname.setText("");
-            ta_createRisk_description.setText("");
-            tf_createRisk_riskOwner.setText("");
-
-        }
-
-        public void showMessage(String title, String message, int messageType) {
-            JOptionPane.showMessageDialog(createRiskPanel,
-                    message,
-                    title,
-                    messageType);
-        }
+    public void showMessage(String title, String message, int messageType) {
+        JOptionPane.showMessageDialog(createRiskPanel,
+                message,
+                title,
+                messageType);
+    }
 }
