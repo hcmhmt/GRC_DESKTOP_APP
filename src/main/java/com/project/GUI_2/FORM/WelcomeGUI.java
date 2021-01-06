@@ -1,9 +1,4 @@
 package com.project.GUI_2.FORM;
-import com.project.GUI_2.FORM.signUP_FORM_GUI;
-import com.project.GUI_2.FORM.signIn_GUI;
-import com.project.GUI_2.CREATE.createUser_GUI;
-import com.project.GUI_2.MANAGER.Manager_Page_GUI;
-import com.project.GUI_2.ROLEOWNER.RoleOwner_Page_GUI;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -15,9 +10,9 @@ public class WelcomeGUI extends JFrame {
     private JButton signUpButton;
 
 
-    public WelcomeGUI(){
+    public WelcomeGUI() {
         add(welcomePanel);
-        setSize(200,200);
+        setSize(200, 200);
         setTitle("Welcome your GRC Application");
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setVisible(true);
@@ -38,7 +33,6 @@ public class WelcomeGUI extends JFrame {
                 new signUP_FORM_GUI();
             }
         });
-
 
 
         signINButton.addActionListener(new ActionListener() {

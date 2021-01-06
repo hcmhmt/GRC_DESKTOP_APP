@@ -8,13 +8,6 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-/*
-
-TO DO
-* 1-Kullanici ManagerID Text olarak yazmasi yerine, User tablosunda kullanici tipi Manager olan isileri Combobox olarak gosterebilir miyiz?
-2- Kullanici "user_is_active burda boolean, ama onu enum yaptik.. o yuzden degismeli??"
-* */
-
 
 
 /*
@@ -70,17 +63,6 @@ public class signUP_FORM_GUI extends JFrame{
         b_signUp_cancel.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
-                dispose();
-                new WelcomeGUI();
-            }
-        });
-
-        bt_SignUp_signOut.addActionListener(new ActionListener() {
-            @Override
-
-            public void actionPerformed(ActionEvent e) {
-
                 dispose();
                 new WelcomeGUI();
             }
@@ -90,10 +72,6 @@ public class signUP_FORM_GUI extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 UserEntity user = new UserEntity();
-                RoleEntity role = new RoleEntity();
-
-                role.setRoleId(1L);
-                role.setRoleName("Public");
 
                 // getting all Info of User
                 String username = tf_signUp_username.getText().trim();
@@ -120,7 +98,6 @@ public class signUP_FORM_GUI extends JFrame{
                         user.setUserGroup(group);
                         user.setUserType(userType.name());
                         user.setManagerID(managerID);
-                        user.setRoleId(role);
 
                         user = userService.save(user);
                         if (user != null) {

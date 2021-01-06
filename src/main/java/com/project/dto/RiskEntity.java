@@ -24,10 +24,7 @@ public class RiskEntity implements Serializable {
     private String riskOwnerID;
 
     @Column(name = "risk_level", unique = false, nullable = true, length = 100)
-    private String risklevel;
-
-    @OneToOne(mappedBy = "risk")
-    private RoleEntity role;
+    private String riskLevel;
 
     public Long getRiskId() {
         return riskId;
@@ -62,20 +59,13 @@ public class RiskEntity implements Serializable {
     }
 
     public String getRisklevel() {
-        return risklevel;
+        return riskLevel;
     }
 
-    public void setRisklevel(String risklevel) {
-        this.risklevel = risklevel;
+    public void setRisklevel(String riskLevel) {
+        this.riskLevel = riskLevel;
     }
 
-    public RoleEntity getRole() {
-        return role;
-    }
-
-    public void setRole(RoleEntity role) {
-        this.role = role;
-    }
 }
 
 

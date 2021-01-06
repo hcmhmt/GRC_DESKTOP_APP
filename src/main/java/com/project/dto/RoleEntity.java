@@ -25,13 +25,16 @@ public class RoleEntity implements Serializable {
     @Column(name = "role_system", unique = false, nullable = true, length = 100)
     private String system;
 
-    @JoinColumn(name = "role_user_id")
-    @OneToMany(fetch = FetchType.LAZY)
+    @ManyToMany(cascade = {CascadeType.ALL})
+    @JoinTable(
+            name = "user_role",
+            joinColumns = { @JoinColumn(name = "role_id") },
+            inverseJoinColumns = { @JoinColumn(name = "user_id") }
+    )
     private List<UserEntity> users;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "risk_role_id", referencedColumnName = "risk_id", nullable = true)
-    private RiskEntity risk;
+    @JoinColumn(name = "risk_role_id", unique = false, nullable = true)
+    private Long risk_role_id;
 
     public Long getRoleId() {
         return roleId;
@@ -81,13 +84,14 @@ public class RoleEntity implements Serializable {
         this.users = users;
     }
 
-    public RiskEntity getRisk() {
-        return risk;
+    public Long getRisk() {
+        return risk_role_id;
     }
 
-    public void setRisk(RiskEntity risk) {
-        this.risk = risk;
+    public void setRisk(Long risk_role_id) {
+        this.risk_role_id = risk_role_id;
     }
+
 }
 
 

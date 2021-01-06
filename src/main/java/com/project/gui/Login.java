@@ -49,7 +49,7 @@ public class Login extends JFrame {
 
                     if (user != null) {
                         showMessage("Başarılı", "Yönlendiriliyorsunuz", JOptionPane.INFORMATION_MESSAGE);
-                        int role = user.getRoleId().getRoleId().intValue();
+                        int role = 1;//user.getRoles().getRoleId().intValue();
                         switch (role) {
                             case 1:
                                 openPublic();

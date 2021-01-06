@@ -1,19 +1,18 @@
 package com.project.GUI_2.CREATE;
 
-import com.project.GUI_2.FORM.WelcomeGUI;
-import com.project.GUI_2.USER.RoleOwner_GUI;
+import com.project.GUI_2.ROLEOWNER.RoleOwner_Page_GUI;
 import com.project.dto.RiskEntity;
 import com.project.dto.RoleEntity;
+import com.project.dto.UserEntity;
 import com.project.service.RiskService;
-import com.project.service.UserRoleService;
+import com.project.service.RoleService;
+import com.project.service.UserService;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 /*
  * This Page can opened only by Role Owner.
@@ -32,9 +31,11 @@ public class createRole_GUI extends JFrame {
     private JButton bt_createRole_back;
     private JButton bt_createRole_signout;
     private JPanel createRolePanel;
+    private JComboBox cb_createRole_users;
 
-    private UserRoleService userRoleService;
+    private RoleService roleService;
     private RiskService riskService;
+    private UserService userService;
 
 /*
 
@@ -59,16 +60,23 @@ TO DO
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setResizable(false);
         setVisible(true);
-        userRoleService = new UserRoleService();
+        roleService = new RoleService();
         riskService = new RiskService();
+        userService = new UserService();
 
-        List<RiskEntity> riskList = riskService.getAll();
         Map<Long, String> riskMap = new HashMap<>();
+        Map<Long, String> userMap = new HashMap<>();
 
-        riskList.forEach(riskEntity -> {
+        riskService.getAll().forEach(riskEntity -> {
             cb_createRole_RiskLevel.addItem(riskEntity.getRiskName());
             riskMap.put(riskEntity.getRiskId(), riskEntity.getRiskName());
         });
+
+        userService.getAll().forEach(userEntity -> {
+            cb_createRole_users.addItem(userEntity.getUsername());
+            userMap.put(userEntity.getUserId(), userEntity.getUsername());
+        });
+
 
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
@@ -79,14 +87,7 @@ TO DO
         bt_createRole_back.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new RoleOwner_GUI();
-            }
-        });
-
-        bt_createRole_signout.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                new WelcomeGUI();
+                dispose();
             }
         });
 
@@ -94,7 +95,8 @@ TO DO
         bt_createRole_cancel.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new RoleOwner_GUI();
+                dispose();
+                new RoleOwner_Page_GUI();
             }
         });
 
@@ -103,25 +105,40 @@ TO DO
             public void actionPerformed(ActionEvent e) {
                 RoleEntity role = new RoleEntity();
                 RiskEntity risk = new RiskEntity();
+                UserEntity user = new UserEntity();
 
                 String roleName = tf_createRole_rolename.getText().trim();
                 String description = ta_createRole_description.getText();
-                String roleOwnerID = tf_createRole_roleOwner.getText().trim();
-                String risklevel = String.valueOf(cb_createRole_RiskLevel.getSelectedItem());
+                String roleOwner = cb_createRole_users.getSelectedItem().toString().trim();
+                String riskName = cb_createRole_RiskLevel.getSelectedItem().toString();
                 String system = String.valueOf(cb_createRole_System.getSelectedItem());
 
-
                 // checking of all Text fields and confirming
-                if (!roleName.isEmpty() || !roleOwnerID.isEmpty() || !risklevel.isEmpty() || !system.isEmpty()) {
+                if (!roleName.isEmpty() || !roleOwner.isEmpty()) {
+
+                    for (Map.Entry<Long, String> entry : riskMap.entrySet()) {
+                        if (entry.getValue().equals(riskName)) {
+                            risk.setRiskId(entry.getKey());
+                            risk.setRiskName(entry.getValue());
+                            break;
+                        }
+                    }
+                    for (Map.Entry<Long, String> entry : userMap.entrySet()) {
+                        if (entry.getValue().equals(roleOwner)) {
+                            user.setUserId(entry.getKey());
+                            user.setUsername(entry.getValue());
+                            break;
+                        }
+                    }
 
                     // if there is no blank field--> setting all Info to Role table
                     role.setRoleName(roleName);
                     role.setDescription(description);
-                    role.setRoleOwnerID(roleOwnerID);
-                    //role.setRisklevel(risklevel);
+                    role.setRoleOwnerID(roleOwner);
+                    role.setRisk(risk.getRiskId());
                     role.setSystem(system);
 
-                    role = userRoleService.save(role);
+                    role = roleService.save(role, user);
 
                     if (role != null) {
                         showMessage("Done", "You have created a new Role", JOptionPane.INFORMATION_MESSAGE);
@@ -146,7 +163,6 @@ TO DO
     private void setEmptyInputs() {
         tf_createRole_rolename.setText("");
         ta_createRole_description.setText("");
-        tf_createRole_roleOwner.setText("");
 
     }
 

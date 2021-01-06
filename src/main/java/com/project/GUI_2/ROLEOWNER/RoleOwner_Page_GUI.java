@@ -1,33 +1,29 @@
 package com.project.GUI_2.ROLEOWNER;
 
-import javax.swing.*;
+import com.project.GUI_2.CREATE.createRole_GUI;
+import com.project.GUI_2.FORM.WelcomeGUI;
+import com.project.GUI_2.SEARCH.searchRequest_GUI;
+import com.project.GUI_2.SEARCH.searchRole_GUI;
+import com.project.GUI_2.SEARCH.searchUser_GUI;
 
+import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-
-import com.project.GUI_2.CREATE.createRole_GUI;
-import com.project.GUI_2.FORM.WelcomeGUI;
-import com.project.GUI_2.FORM.signIn_GUI;
-import com.project.GUI_2.SEARCH.requestSearch_GUI;
-import com.project.GUI_2.SEARCH.roleSearch_GUI;
-import com.project.GUI_2.SEARCH.userSearch_GUI;
-
-public class RoleOwner_Page_GUI extends JFrame{
+public class RoleOwner_Page_GUI extends JFrame {
     private JPanel roleOwnerPagePanel;
-    private JButton bt_roleowner_signout;
-    private JButton bt_roleowner_back;
     private JTextPane tp_roleowner_requestman;
-    private JButton bt_roleowner_searchRequest;
     private JTextPane tp_roleowner_userman;
     private JTextPane tp_roleowner_roleman;
+    private JButton bt_roleowner_signout;
+    private JButton bt_roleowner_searchRequest;
     private JButton bt_roleowner_searchRole;
     private JButton bt_roleowner_createRole;
     private JButton bt_roleowner_searchUser;
 
-    public RoleOwner_Page_GUI(){
+    public RoleOwner_Page_GUI() {
         add(roleOwnerPagePanel);
-        setSize(700,600);
+        setSize(700, 600);
 
         setTitle("You are Role Owner!");
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -40,14 +36,6 @@ public class RoleOwner_Page_GUI extends JFrame{
             System.out.println(e.getMessage());
         }
 
-        bt_roleowner_back.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                dispose();
-                new signIn_GUI();
-            }
-        });
-
         bt_roleowner_signout.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -56,25 +44,24 @@ public class RoleOwner_Page_GUI extends JFrame{
             }
         });
 
-
         bt_roleowner_searchUser.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new userSearch_GUI();
+                new searchUser_GUI();
             }
         });
 
         bt_roleowner_searchRequest.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new requestSearch_GUI();
+                new searchRequest_GUI();
             }
         });
 
         bt_roleowner_searchRole.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new roleSearch_GUI();
+                new searchRole_GUI();
             }
         });
 

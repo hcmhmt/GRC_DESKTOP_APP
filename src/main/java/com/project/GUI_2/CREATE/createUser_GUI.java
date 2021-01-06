@@ -1,10 +1,11 @@
 package com.project.GUI_2.CREATE;
 
-import com.project.GUI_2.FORM.WelcomeGUI;
-import com.project.GUI_2.USER.Manager_GUI;
-import com.project.dto.*;
+import com.project.GUI_2.MANAGER.Manager_Page_GUI;
+import com.project.dto.RoleEntity;
+import com.project.dto.StatusEnum;
+import com.project.dto.TypeEnum;
+import com.project.dto.UserEntity;
 import com.project.service.UserService;
-import com.project.service.UserRoleService;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -18,20 +19,19 @@ import java.awt.event.ActionListener;
 public class createUser_GUI extends JFrame {
 
     //define  variables
-
-    private JComboBox cb_createUser_usergroup;
+    private JPanel createUserPanel;
     private JTextField tf_createUser_username;
     private JTextField tf_createUser_surname;
     private JTextField tf_createUser_firstname;
     private JTextField tf_createUser_email;
+    private JTextField tf_createUser_managerID;
     private JPasswordField pf_createUser_password;
     private JPasswordField pf_createUser_passwordConfirm;
     private JButton bt_createUser_create;
     private JButton bt_createUser_cancel;
-    private JTextField tf_createUser_managerID;
     private JButton bt_createUser_back;
     private JButton bt_createUser_signout;
-    private JPanel createUserPanel;
+    private JComboBox cb_createUser_usergroup;
     private JComboBox cb_createUser_usertyp;
 
     private UserService userService;
@@ -62,22 +62,14 @@ public class createUser_GUI extends JFrame {
         bt_createUser_back.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new Manager_GUI();
+                dispose();
             }
         });
-
-        bt_createUser_signout.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                new WelcomeGUI();
-            }
-        });
-
 
         bt_createUser_cancel.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new Manager_GUI();
+                new Manager_Page_GUI();
             }
         });
 
@@ -88,7 +80,7 @@ public class createUser_GUI extends JFrame {
                 RoleEntity role = new RoleEntity();
 
                 role.setRoleId(1L);
-                role.setRoleName("Public");
+                role.setRoleName("ABC_ALLGEMEIN");
 
                 // getting all Info of User
                 String username = tf_createUser_username.getText().trim();
@@ -100,9 +92,7 @@ public class createUser_GUI extends JFrame {
                 String group = String.valueOf(cb_createUser_usergroup.getSelectedItem());
                 TypeEnum userType = TypeEnum.valueOf(String.valueOf(cb_createUser_usertyp.getSelectedItem()));
 
-
                 String managerID = tf_createUser_managerID.getText().trim();
-
 
                 // checking of all Text fields and confirming
                 if (!username.isEmpty() || !firstName.isEmpty() || !surname.isEmpty() || !password.isEmpty() || !passwordConfirm.isEmpty() || !email.isEmpty()) {

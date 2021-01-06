@@ -2,6 +2,7 @@ package com.project.dto;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Table(name = "\"user\"")
@@ -39,9 +40,8 @@ public class UserEntity implements Serializable {
     @Column(name = "user_is_active", nullable = true)
     private String userIsActive;
 
-    @JoinColumn(name = "role_user_id")
-    @ManyToOne(optional = true, fetch = FetchType.LAZY)
-    private RoleEntity roleId;
+    @ManyToMany(mappedBy = "users")
+    private List<RoleEntity> roles;
 
     public Long getUserId() {
         return userId;
@@ -123,11 +123,11 @@ public class UserEntity implements Serializable {
         this.userIsActive = userIsActive;
     }
 
-    public RoleEntity getRoleId() {
-        return roleId;
+    public List<RoleEntity> getRoles() {
+        return roles;
     }
 
-    public void setRoleId(RoleEntity roleId) {
-        this.roleId = roleId;
+    public void setRoles(List<RoleEntity> roles) {
+        this.roles = roles;
     }
 }

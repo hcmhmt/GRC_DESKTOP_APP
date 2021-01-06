@@ -1,7 +1,6 @@
 package com.project.service;
 
 
-
 import com.project.dto.RiskEntity;
 import com.project.dto.UserEntity;
 import com.project.gui.TestHibernate;

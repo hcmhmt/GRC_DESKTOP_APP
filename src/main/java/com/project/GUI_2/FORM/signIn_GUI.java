@@ -1,24 +1,19 @@
 package com.project.GUI_2.FORM;
 
-import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
 import com.project.GUI_2.ENDUSER.EndUser_Page_GUI;
 import com.project.GUI_2.MANAGER.Manager_Page_GUI;
 import com.project.GUI_2.RISKMANAGER.RiskManager_Page_GUI;
 import com.project.GUI_2.ROLEOWNER.RoleOwner_Page_GUI;
+import com.project.config.SessionUser;
 import com.project.dto.StatusEnum;
 import com.project.dto.UserEntity;
-import com.project.GUI_2.USER.endUser_GUI;
-import com.project.GUI_2.USER.Manager_GUI;
-import com.project.GUI_2.USER.RiskManager_GUI;
-import com.project.GUI_2.USER.RoleOwner_GUI;
-import com.project.GUI_2.FORM.WelcomeGUI;
-import com.project.GUI_2.FORM.ForgotPASSWORD_GUI;
 import com.project.service.UserService;
 
-public class signIn_GUI extends JFrame{
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class signIn_GUI extends JFrame {
     private JPanel signinpanel;
     private JButton bt_signIn_back;
     private JTextField tf_signIn_username;
@@ -27,10 +22,11 @@ public class signIn_GUI extends JFrame{
     private JButton bt_signIn_sifremiunuttum;
 
     private UserService userService;
+    private SessionUser sessionUser;
 
-    public signIn_GUI(){
+    public signIn_GUI() {
         add(signinpanel);
-        setSize(600,400);
+        setSize(600, 400);
         setTitle("Please login to your GRC Application");
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setResizable(false);
@@ -47,17 +43,17 @@ public class signIn_GUI extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 dispose();
-                new  WelcomeGUI();
+                new WelcomeGUI();
             }
         });
+
         bt_signIn_sifremiunuttum.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 dispose();
-                new  ForgotPASSWORD_GUI();
+                new ForgotPASSWORD_GUI();
             }
         });
-
 
         bt_signIn_singin.addActionListener(new ActionListener() {
             @Override
@@ -70,9 +66,10 @@ public class signIn_GUI extends JFrame{
                     user.setUserPassword(password);
                     user.setUsername(username);
                     user = userService.canLogin(user);
-                    if (user != null && user.getUserIsActive().equals(StatusEnum.ACTIVE.name())) {
 
-                        switch (user.getUserType().toString()){
+                    if (user != null && user.getUserIsActive().equals(StatusEnum.ACTIVE.name())) {
+                        new SessionUser().setInfo(user.getUserId(), user.getUsername());
+                        switch (user.getUserType().toString()) {
                             case "MANAGER":
                                 dispose();
                                 showMessage("Done!", "Forwarding to Your Manager Page", JOptionPane.INFORMATION_MESSAGE);
@@ -94,18 +91,15 @@ public class signIn_GUI extends JFrame{
                                 new EndUser_Page_GUI();
                                 break;
                         }
-                    }
-                    else {
+                    } else {
                         showMessage("Warning", "Invalid Password", JOptionPane.WARNING_MESSAGE);
                     }
 
+                } else {
+                    showMessage("Warning", "Missing Info", JOptionPane.WARNING_MESSAGE);
                 }
-
-                else {
-                showMessage("Warning", "Missing Info", JOptionPane.WARNING_MESSAGE);
             }
-        }
-});
+        });
     }
 
     public void showMessage(String title, String message, int messageType) {
